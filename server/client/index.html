@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fulfillment Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            Fulfillment Hub
+        </div>
+
+        <div class="logo-subtitle">
+            XYZ E-commerce Operations
+        </div>
+
+        <a href="#" class="nav-item" data-section="dashboard" onclick="showSection('dashboard')">Dashboard</a>
+
+        <a href="#" class="nav-item" data-section="orders" onclick="showSection('orders')">Orders</a>
+
+       <a href="#" class="nav-item" data-section="inventory" onclick="showSection('inventory')">Inventory</a>
+        <a href="#" class="nav-item" data-section="picking" onclick="showSection('picking')">Picking</a>
+
+        <a href="#" class="nav-item" data-section="packing" onclick="showSection('packing')">Packing</a>
+
+        <a href="#" class="nav-item" data-section="staging" onclick="showSection('staging')">Staging</a>
+
+        <a href="#" class="nav-item" data-section="shipping" onclick="showSection('shipping')">Shipping</a>
+
+        <a href="#" class="nav-item" data-section="issues" onclick="showSection('issues')">Issues</a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <div class="header">
+            <h1>Fulfillment Dashboard</h1>
+
+            <p>
+                Monitor orders, inventory, shipping and warehouse issues.
+            </p>
+        </div>
+
+
+        <!-- SUMMARY CARDS -->
+        <div class="summary-grid">
+
+            <div class="card">
+                <div class="card-title">
+                    Total Orders
+                </div>
+
+                <div class="card-value" id="totalOrders">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-title">
+                    High Priority
+                </div>
+
+                <div class="card-value" id="priorityOrders">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-title">
+                    Delayed Orders
+                </div>
+
+                <div class="card-value" id="delayedOrders">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-title">
+                    Ready to Ship
+                </div>
+
+                <div class="card-value" id="readyToShip">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-title">
+                    Open Issues
+                </div>
+
+                <div class="card-value" id="openIssues">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-title">
+                    Low Stock
+                </div>
+
+                <div class="card-value" id="lowStock">
+                    Loading...
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ORDERS -->
+        <div class="section" id="ordersSection">
+
+            <div class="section-header">
+                <h2>Priority Order Queue</h2>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Order</th>
+                            <th>Customer</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="ordersTable">
+
+                        <tr>
+                            <td colspan="5">
+                                Loading orders...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+<!-- INVENTORY -->
+<div class="section" id="inventorySection">
+
+    <div class="section-header">
+        <h2>Inventory Overview</h2>
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>SKU</th>
+                    <th>Variant</th>
+                    <th>Warehouse</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+
+            <tbody id="inventoryTable">
+
+                <tr>
+                    <td colspan="5">
+                        Loading inventory...
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+<!-- ISSUES -->
+<div class="section" id="issuesSection">
+
+    <div class="section-header">
+        <h2>Open Issues & Exceptions</h2>
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Issue</th>
+                    <th>Order</th>
+                    <th>Priority</th>
+                    <th>Assigned Team</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="issuesTable">
+
+                <tr>
+                    <td colspan="5">
+                        Loading issues...
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+<!-- SHIPPING -->
+<div class="section" id="shippingSection">
+
+    <div class="section-header">
+        <h2>Shipping & Courier Pickup</h2>
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Courier</th>
+                    <th>Tracking Number</th>
+                    <th>Status</th>
+                    <th>Pickup Time</th>
+                </tr>
+            </thead>
+
+            <tbody id="shippingTable">
+
+                <tr>
+                    <td colspan="6">
+                        Loading shipments...
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+async function loadDashboard() {
+
+    try {
+
+        const response = await fetch("/api/dashboard");
+
+        const data = await response.json();
+
+        document.getElementById("totalOrders").textContent =
+            data.totalOrders;
+
+        document.getElementById("priorityOrders").textContent =
+            data.priorityOrders;
+
+        document.getElementById("delayedOrders").textContent =
+            data.delayedOrders;
+
+        document.getElementById("readyToShip").textContent =
+            data.readyToShip;
+
+        document.getElementById("openIssues").textContent =
+            data.openIssues;
+
+        document.getElementById("lowStock").textContent =
+            data.lowStock;
+
+    } catch (error) {
+
+        console.error("Dashboard error:", error);
+
+    }
+
+}
+
+
+async function loadOrders() {
+
+    try {
+
+        const response = await fetch("/api/orders");
+
+        const orders = await response.json();
+
+        const table = document.getElementById("ordersTable");
+
+        table.innerHTML = "";
+
+
+        const filteredOrders = orders.filter(order => {
+
+    if (window.currentSection === "picking") {
+        return order.status === "PICKING";
+    }
+
+    if (window.currentSection === "packing") {
+        return order.status === "PACKING";
+    }
+if (window.currentSection === "staging") {
+    return order.status === "STAGING";
+}
+
+    return true;
+});
+if (filteredOrders.length === 0) {
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td colspan="6" style="text-align:center; padding:20px; color:#6b7280;">
+            No orders currently in ${window.currentSection}.
+        </td>
+    `;
+
+    table.appendChild(row);
+
+    return;
+
+}
+filteredOrders.forEach(order => {
+
+            const row = document.createElement("tr");
+
+
+            const priorityClass =
+                order.priority === "HIGH"
+                ? "priority-high"
+                : "priority-normal";
+
+
+            row.innerHTML = `
+
+                <td>
+                    <strong>${order.order_number}</strong>
+                </td>
+
+                <td>
+                    ${order.customer_name}
+                </td>
+
+                <td>
+                    <span class="badge ${priorityClass}">
+                        ${order.priority}
+                    </span>
+                </td>
+
+               <td>
+    <select
+        class="status-select"
+        onchange="updateOrderStatus(${order.id}, this.value)"
+    >
+        <option value="RECEIVED" ${order.status === "RECEIVED" ? "selected" : ""}>
+            RECEIVED
+        </option>
+
+        <option value="PROCESSING" ${order.status === "PROCESSING" ? "selected" : ""}>
+            PROCESSING
+        </option>
+
+        <option value="PICKING" ${order.status === "PICKING" ? "selected" : ""}>
+            PICKING
+        </option>
+
+        <option value="PACKING" ${order.status === "PACKING" ? "selected" : ""}>
+            PACKING
+        </option>
+
+        <option value="STAGING" ${order.status === "STAGING" ? "selected" : ""}>
+            STAGING
+        </option>
+
+        <option value="SHIPPED" ${order.status === "SHIPPED" ? "selected" : ""}>
+            SHIPPED
+        </option>
+
+        <option value="DELAYED" ${order.status === "DELAYED" ? "selected" : ""}>
+            DELAYED
+        </option>
+    </select>
+</td>
+
+                <td>
+                    ${order.deadline}
+                </td>
+
+            `;
+
+
+            table.appendChild(row);
+
+        });
+
+
+    } catch (error) {
+
+        console.error("Orders error:", error);
+
+    }
+
+}
+
+
+loadDashboard();
+
+loadOrders();
+async function loadInventory() {
+
+    try {
+
+        const response = await fetch("/api/inventory");
+
+        const inventory = await response.json();
+
+        const table = document.getElementById("inventoryTable");
+
+        table.innerHTML = "";
+
+        inventory.forEach(item => {
+
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>
+                    <strong>${item.product_name}</strong>
+                </td>
+
+                <td>
+                    ${item.sku}
+                </td>
+
+                <td>
+                    ${item.variant}
+                </td>
+
+                <td>
+                    ${item.warehouse_name}
+                </td>
+
+                <td>
+                    ${item.quantity < 10
+    ? `<span class="low-stock">${item.quantity}</span>`
+    : item.quantity}
+                </td>
+            `;
+
+            table.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Inventory error:", error);
+
+    }
+
+}
+
+loadInventory();
+async function loadIssues() {
+
+    try {
+
+        const response = await fetch("/api/issues");
+
+        const issues = await response.json();
+
+        const table = document.getElementById("issuesTable");
+
+        table.innerHTML = "";
+
+        issues.forEach(issue => {
+
+            const row = document.createElement("tr");
+
+            const priorityClass =
+                issue.priority === "HIGH"
+                ? "priority-high"
+                : "priority-normal";
+
+            row.innerHTML = `
+                <td>
+                    <strong>${issue.title}</strong>
+                    <br>
+                    <small>${issue.description}</small>
+                </td>
+
+                <td>
+                    ${issue.order_number || "—"}
+                </td>
+
+                <td>
+                    <span class="badge ${priorityClass}">
+                        ${issue.priority}
+                    </span>
+                </td>
+
+                <td>
+                    ${issue.assigned_to}
+                </td>
+
+                <td>
+                    <span class="badge status">
+                        ${issue.status}
+                    </span>
+                </td>
+            `;
+
+            table.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Issues error:", error);
+
+    }
+
+}
+
+loadIssues();
+async function loadShipping() {
+
+    try {
+
+        const response = await fetch("/api/shipments");
+
+        const shipments = await response.json();
+
+        const table = document.getElementById("shippingTable");
+
+        table.innerHTML = "";
+
+        shipments.forEach(shipment => {
+
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>
+                    <strong>${shipment.order_number}</strong>
+                </td>
+
+                <td>
+                    ${shipment.customer_name}
+                </td>
+
+                <td>
+                    ${shipment.courier}
+                </td>
+
+                <td>
+                    ${shipment.tracking_number}
+                </td>
+
+                <td>
+                    <span class="badge status">
+                        ${shipment.status}
+                    </span>
+                </td>
+
+                <td>
+                    ${shipment.pickup_time}
+                </td>
+            `;
+
+            table.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Shipping error:", error);
+
+    }
+
+}
+
+loadShipping();
+async function updateOrderStatus(orderId, status) {
+
+    try {
+
+        const response = await fetch(`/api/orders/${orderId}/status`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                status: status
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to update order status");
+        }
+
+        await loadOrders();
+        await loadDashboard();
+
+    } catch (error) {
+
+        console.error("Status update error:", error);
+
+        alert("Could not update order status.");
+
+        await loadOrders();
+    }
+}
+function showSection(section) {
+  window.currentSection=section;
+  document.querySelectorAll(".nav-item").forEach(function(item) {
+    item.classList.remove("active");
+});
+
+const activeItem = document.querySelector(
+    `.nav-item[data-section="${section}"]`
+);
+
+if (activeItem) {
+    activeItem.classList.add("active");
+}
+
+    const sections = document.querySelectorAll(".section");
+    const summaryGrid = document.querySelector(".summary-grid");
+
+    sections.forEach(function(item) {
+        item.style.display = "none";
+    });
+
+    if (section === "dashboard") {
+
+        summaryGrid.style.display = "grid";
+
+        sections.forEach(function(item) {
+            item.style.display = "block";
+        });
+
+        document.querySelector(".header h1").textContent =
+            "Fulfillment Dashboard";
+
+        document.querySelector(".header p").textContent =
+            "Monitor orders, inventory, issues and shipping operations.";
+
+       showSection("dashboard");
+
+    } else if (section === "orders") {
+
+        summaryGrid.style.display = "none";
+
+        document.querySelector("#ordersSection").style.display = "block";
+
+        document.querySelector(".header h1").textContent =
+            "Orders";
+
+        document.querySelector(".header p").textContent =
+            "Manage order status and monitor fulfillment progress.";
+
+        loadOrders();
+
+    } else if (section === "inventory") {
+
+        summaryGrid.style.display = "none";
+
+        document.querySelector("#inventorySection").style.display = "block";
+
+        document.querySelector(".header h1").textContent =
+            "Inventory";
+
+        document.querySelector(".header p").textContent =
+            "Monitor stock levels across warehouse locations.";
+
+        loadInventory();
+
+    } else if (section === "shipping") {
+
+        summaryGrid.style.display = "none";
+
+        document.querySelector("#shippingSection").style.display = "block";
+
+        document.querySelector(".header h1").textContent =
+            "Shipping";
+
+        document.querySelector(".header p").textContent =
+            "Track shipments and courier pickup status.";
+
+        loadShipping();
+
+    } else if (section === "issues") {
+
+        summaryGrid.style.display = "none";
+
+        document.querySelector("#issuesSection").style.display = "block";
+
+        document.querySelector(".header h1").textContent =
+            "Issues & Exceptions";
+
+        document.querySelector(".header p").textContent =
+            "Track operational issues and fulfillment exceptions.";
+
+        loadIssues();
+} else if (section === "picking") {
+
+        summaryGrid.style.display = "none";
+
+        document.querySelector("#ordersSection").style.display = "block";
+
+        document.querySelector(".header h1").textContent =
+            "Picking";
+
+        document.querySelector(".header p").textContent =
+            "Manage orders currently being picked in the warehouse.";
+
+        loadOrders();
+} else if (section === "packing") {
+
+        summaryGrid.style.display = "none";
+
+        document.querySelector("#ordersSection").style.display = "block";
+
+        document.querySelector(".header h1").textContent =
+            "Packing";
+
+        document.querySelector(".header p").textContent =
+            "Manage orders currently being packed and prepared for dispatch.";
+
+        loadOrders();
+} else if (section === "staging") {
+
+        summaryGrid.style.display = "none";
+
+        document.querySelector("#ordersSection").style.display = "block";
+
+        document.querySelector(".header h1").textContent =
+            "Staging";
+
+        document.querySelector(".header p").textContent =
+            "Monitor orders ready for shipment and courier pickup.";
+
+        loadOrders();
+    }
+}
+</script>
+
+</body>
+</html>
